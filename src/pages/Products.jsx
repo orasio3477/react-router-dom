@@ -5,6 +5,20 @@ import { searchParams, useSearchParams } from "react-router-dom";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const items = [
+    {
+      name: "멋진 바지",
+      price: 20000,
+    },
+    {
+      name: "멋진 셔츠",
+      price: 10000,
+    },
+    {
+      name: "멋진 신발",
+      price: 30000,
+    },
+  ];
 
   return (
     <>
@@ -34,39 +48,20 @@ export default function Products() {
             gap: "24px",
           }}
         >
-          <Link to="/products/1">
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품1
-            </div>
-          </Link>
-          <Link to="/products/2">
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품2
-            </div>
-          </Link>
-          <Link to="/products/3">
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품3
-            </div>
-          </Link>
+          {items.map((item, index) => (
+            <Link to={`/products/${index + 1}`} key={index}>
+              <div
+                style={{
+                  width: "200px",
+                  height: "240px",
+                  backgroundColor: "#068FFF",
+                }}
+              >
+                <p>{item.name}</p>
+                <p>{item.price}원</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </>

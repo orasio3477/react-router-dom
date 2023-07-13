@@ -2,6 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Main() {
+  const items = [
+    {
+      name: "멋진 바지",
+      price: 20000,
+    },
+    {
+      name: "멋진 셔츠",
+      price: 10000,
+    },
+    {
+      name: "멋진 신발",
+      price: 30000,
+    },
+  ];
+
   return (
     <>
       {/* main */}
@@ -34,33 +49,19 @@ function Main() {
               gap: "24px",
             }}
           >
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품1
-            </div>
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품2
-            </div>
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품3
-            </div>
+            {items.map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  width: "200px",
+                  height: "240px",
+                  backgroundColor: "#068FFF",
+                }}
+              >
+                <p>{item.name}</p>
+                <p>{item.price}원</p>
+              </div>
+            ))}
           </div>
           {/* Link는 <a>랑 비슷하지만 <a>태그는 페이지를 새로 불러오고
           Link태그는 브라우저의 주소만 바꿀 뿐 페이지를 새로 불러오지 않는다 */}
